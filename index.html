@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Wine & Cheese With Flux and Observables</title>
+</head>
+<body>
+
+<ui-view></ui-view>
+
+
+<!--Libraries-->
+<script src="assets/vendor/angular/angular.js"></script>
+<script src="assets/vendor/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="assets/vendor/rxjs/dist/rx.all.js"></script>
+<script src="assets/vendor/ramda/dist/ramda.js"></script>
+
+<!--Core-->
+<script src="core/app.js"></script>
+<script src="core/dispatcher.js"></script>
+
+<!--Actions-->
+<script src="core/actions/wine-actions.js"></script>
+
+<!--Stores-->
+<script src="core/stores/wine/wine-store.js"></script>
+<script src="core/stores/cheese/cheese-store.js"></script>
+
+<!--Controllers-->
+<script src="sections/wine-list/wine-list-controller.js"></script>
+
+</body>
+</html>
