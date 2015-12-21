@@ -1,37 +1,41 @@
-
-<a ui-sref="wine-list">Wine List</a>
-<a ui-sref="cheese-list">Cheese List</a>
+<p>
+  <a ui-sref="wine-list">Wine List</a>
+</p>
+<p>
+  <a ui-sref="cheese-list">Cheese List (You Can Add More Cheeses)</a>
+</p>
 
 <section>
-  <section style="margin-top: 100px;">
+  <div style="margin-top: 20px;">
+    <p>Pair cheese to wine</p>
+    <div>
+      <label for="wineID">Wine:</label>
+      <select id="wineID"
+              ng-model="homeCtrl.newWineID"
+              ng-options="wine.id as wine.name for wine in homeCtrl.wineList">
+      </select>
+    </div>
+    <div>
+      <label for="cheeseID">Cheese:</label>
+      <select id="cheeseID"
+              ng-model="homeCtrl.newCheeseID"
+              ng-options="cheese.id as cheese.name for cheese in homeCtrl.cheeseList">
+      </select>
+
+    </div>
+
+    <button ng-click="homeCtrl.updateWinePairing(homeCtrl.newWineID, homeCtrl.newCheeseID)">
+      Update Wine Pairing
+    </button>
+  </div>
+</section>
+<section>
+  <section style="margin-top: 50px;">
     <h2>With Cheese Pairings</h2>
     <div ng-repeat="wineAndCheese in homeCtrl.winesAndCheeses">
-      <h4>{{wineAndCheese.wineName}}</h4>
-      <span ng-repeat="cheese in wineAndCheese.cheeseList">{{cheese.name}}{{$last ? '' : ', '}}</span>
+      <span style="font-size: 20px; font-weight: bold; font-family: 'Arial';">{{wineAndCheese.wineName}}</span>
+      <p ng-repeat="cheese in wineAndCheese.cheeseList">{{cheese.name}}</p>
     </div>
   </section>
 
-  <section>
-    <div style="margin-top: 20px;">
-      <div>
-        <label for="wineID">Wine:</label>
-        <select id="wineID"
-                ng-model="homeCtrl.newWineID"
-                ng-options="wine.id as wine.name for wine in homeCtrl.wineList">
-        </select>
-      </div>
-      <div>
-        <label for="cheeseID">Cheese:</label>
-        <select id="cheeseID"
-                ng-model="homeCtrl.newCheeseID"
-                ng-options="cheese.id as cheese.name for cheese in homeCtrl.cheeseList">
-        </select>
-
-      </div>
-
-      <button ng-click="homeCtrl.updateWinePairing(homeCtrl.newWineID, homeCtrl.newCheeseID)">
-        Update Wine Pairing
-      </button>
-    </div>
-  </section>
 </section>

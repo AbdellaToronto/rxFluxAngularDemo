@@ -1,0 +1,22 @@
+{
+  "name": "rxFluxDemo",
+  "version": "0.0.0",
+  "authors": [
+    "Abdella <abdellaalioncan@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "angular": "~1.4.8",
+    "rxjs": "~4.0.7",
+    "ramda": "~0.18.0"
+  }
+}
