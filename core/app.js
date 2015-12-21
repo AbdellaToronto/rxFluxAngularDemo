@@ -8,7 +8,8 @@ angular.module('app', ['ui.router'])
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'sections/home/home.html'
+        templateUrl: 'sections/home/home.html',
+        controller: 'homeController as homeCtrl'
       })
       .state('wine-list', {
         url: '/wine-list',

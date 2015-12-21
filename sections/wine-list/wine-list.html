@@ -1,18 +1,1 @@
 <div ng-repeat="wine in wineListCtrl.wineList">{{wine.name}}</div>
-
-<section style="margin-top: 100px;">
-<h2>With Cheese Pairings</h2>
-  <div ng-repeat="wineAndCheese in wineListCtrl.winesAndCheeses">
-    <h4>{{wineAndCheese.wineName}}</h4>
-    <span ng-repeat="cheese in wineAndCheese.cheeseList">{{cheese.name}}{{$last ? '' : ', '}}</span>
-  </div>
-
-  <div style="margin-top: 20px;">
-    <div>
-      <label for="wineID">Wine ID (between 0 - 4):</label><input id="wineID" ng-model="wineListCtrl.newWineID" type="number">
-    </div>
-    <div><label for="cheeseID">Cheese ID (between 0 - 4):</label><input id="cheeseID" ng-model="wineListCtrl.newCheeseID" type="number"></div>
-    <button ng-click="wineListCtrl.updateWinePairing(wineListCtrl.newWineID, wineListCtrl.newCheeseID)">Update Wine Pairing</button>
-  </div>
-</section>
-
