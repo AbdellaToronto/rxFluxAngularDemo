@@ -18,6 +18,6 @@ angular.module('app', ['ui.router'])
       .state('cheese-list', {
         url: '/cheese-list',
         templateUrl: 'sections/cheese-list/cheese-list.html',
-        controller: ''
+        controller: 'cheeseListController as cheeseListCtrl'
       })
   });

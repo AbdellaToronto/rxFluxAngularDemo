@@ -2,19 +2,20 @@
 
 angular.module('app')
 
-  .controller('wineListController', function (cheeseStore, $scope) {
+  .controller('cheeseListController', function (cheeseStore, cheeseActions, $scope) {
 
     (function (vm) {
 
+      vm.addCheese = cheeseActions.addCheese;
 
-      cheeseStore.stream.subscribe(function(cheeseList){
+      var unsubCheeseStore = cheeseStore.stream.subscribe(function(cheeseList){
         vm.cheeseList = cheeseList;
       });
 
 
 
       $scope.$on('$destroy', function(){
-
+        unsubCheeseStore.dispose();
       });
-    }, this)
+    })(this);
   });
