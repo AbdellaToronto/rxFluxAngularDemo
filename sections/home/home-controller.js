@@ -16,7 +16,7 @@ angular.module('app')
 
       var unsubWineStream = wineStore.stream
         .subscribe(function (wineList) {
-          vm.wineList = wineList;
+          vm.wineList = wineList.toJS();
         });
 
       var unsubCheeseStream = cheeseStore.stream
@@ -32,7 +32,7 @@ angular.module('app')
       var unsubWineAndCheeseStream = wineStore.stream
         .flatMap(function (wineList) {
           return Rx.Observable
-            .fromArray(wineList) //turns the array into a stream of individual items
+            .fromArray(wineList.toArray()) //turns the array into a stream of individual items
             .flatMap(function (singleWine) {
 
               //in a flatmap, if you return another observable, the proccess waits until this new observable fires
@@ -40,14 +40,14 @@ angular.module('app')
                 .map(function (cheeseList) {
                   //Filters out the cheeses to see if the pairings match the wines ID
                   return R.filter(function (singleCheese) {
-                    return singleWine.pairings.includes(singleCheese.id);
+                    return singleWine.get('pairings').includes(singleCheese.id);
                   }, cheeseList);
                 })
 
                 //creates a new wine object
                 .map(function (filteredCheeseList) {
                   return {
-                    wineName: singleWine.name,
+                    wineName: singleWine.get('name'),
                     cheeseList: filteredCheeseList
                   }
                 });

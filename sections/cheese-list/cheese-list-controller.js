@@ -13,7 +13,6 @@ angular.module('app')
       });
 
 
-
       $scope.$on('$destroy', function(){
         unsubCheeseStore.dispose();
       });

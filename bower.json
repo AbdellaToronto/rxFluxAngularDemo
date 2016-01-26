@@ -17,6 +17,7 @@
     "angular-ui-router": "~0.2.15",
     "angular": "~1.4.8",
     "rxjs": "~4.0.7",
-    "ramda": "~0.18.0"
+    "ramda": "~0.18.0",
+    "immutable": "~3.7.6"
   }
 }

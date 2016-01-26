@@ -14,7 +14,7 @@ angular.module('app')
       //dispose of that subscription - which if you look down at the $scope.$on('$destroy'... - you'll see that's what we do
       var unsubWineStream = wineStore.stream
         .subscribe(function (wineList) {
-          vm.wineList = wineList;
+          vm.wineList = wineList.toJS();
         });
 
       $scope.$on('$destroy', function () {
